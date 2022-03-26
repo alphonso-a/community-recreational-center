@@ -1,0 +1,33 @@
+a {
+	text-decoration: none;
+}
+
+a:focus {
+	outline: thin dotted;
+}
+
+a:hover,
+a:active {
+	outline: 0;
+}
+
+.entry-content a:not(.more-link):not(.button):not(.wp-block-button__link),
+.entry-summary a:not(.more-link):not(.button):not(.wp-block-button__link),
+.ew-about a:not(.more-link):not(.button),
+.widget_text a:not(.more-link):not(.button),
+.comment-content a {
+    text-decoration: underline;
+}
+
+.entry-content a:not(.more-link):not(.button):hover,
+.entry-content a:not(.more-link):not(.button):focus,
+.entry-summary a:not(.more-link):not(.button):hover,
+.entry-summary a:not(.more-link):not(.button):focus,
+.ew-about a:not(.more-link):not(.button):hover,
+.ew-about a:not(.more-link):not(.button):focus,
+.widget_text a:not(.more-link):not(.button):hover,
+.widget_text a:not(.more-link):not(.button):focus,
+.comment-content a:hover,
+.comment-content a:focus {
+	text-decoration: none;
+}
