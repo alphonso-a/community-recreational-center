@@ -41,6 +41,24 @@ get_header(); ?>
 			<?php the_content(); ?>
             </div>
 
+			<?php 
+            $relatedGames = get_field('related_games');// array of post objects
+            if($relatedGames){
+                echo '<hr class="section-break">';
+                echo '<h2 class="headline headline--medium">Related Games</h2>';
+                echo '<ul class="link-list min-list">';
+                foreach($relatedGames as $game){ //for each a post object
+                ?>
+                <li><a href="<?php echo get_the_permalink($game);?>">
+                        <?php echo get_the_title($game);?>
+                    </a>
+                </li>   
+        <?php }
+
+            }
+            echo '</ul>';
+        ?>
+
 
 
 			

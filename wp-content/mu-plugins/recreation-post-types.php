@@ -16,6 +16,8 @@ function recreation_post_types(){
             'menu_icon' => 'dashicons-building'
         ));
         register_post_type('event',array(
+            'capability_type' => 'event',
+            'map_meta_cap'=> true,
             'supports' => array('title', 'editor','excerpt','thumbnail','custom-fields'),
             'rewrite'=> array('slug' => 'events' ),
             'has_archive' => true,
@@ -44,6 +46,21 @@ function recreation_post_types(){
                 'singular_name' => "Routine"
             ),
             'menu_icon' => 'dashicons-universal-access'
+        ));
+        register_post_type('game',array(
+            'supports' => array('title', 'editor','excerpt','thumbnail','custom-fields'),
+            'rewrite'=> array('slug' => 'games' ),
+            'has_archive' => true,
+            'public' => true,
+            'description' => 'Holds game info', 
+            'labels' => array(
+                'name' => "Games",
+                'add_new_item' => 'Add New Game',
+                'edit_item' => 'Edit Game',
+                'all_items' => 'All Games',
+                'singular_name' => "Game"
+            ),
+            'menu_icon' => 'dashicons-games'
         ));
 }
  add_action('init', 'recreation_post_types');

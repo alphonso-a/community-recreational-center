@@ -30,6 +30,7 @@ get_header(); ?>
 				   <br/>
 				   <p>Posted by <?php the_author_posts_link();?> on <?php the_time('n.j.y'); ?></p>
                 </h5>
+				<img class="card__image" src="<?php the_post_thumbnail_url('kids-camp-logo');?>">
                 <p><?php echo wp_trim_words(get_the_content(),10); ?>  <br/>
 
 				
