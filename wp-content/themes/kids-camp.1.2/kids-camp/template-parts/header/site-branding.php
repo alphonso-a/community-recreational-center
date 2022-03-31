@@ -9,7 +9,7 @@
 <div id="header-content">
 	<div class="wrapper">
 		<div class="site-header-main">
-			<?php get_template_part( 'template-parts/navigation/navigation-social-header-left' );  ?>
+			<?php //get_template_part( 'template-parts/navigation/navigation-social-header-left' );  ?>
 
 			<div class="site-branding">
 				<?php kids_camp_the_custom_logo(); ?>
@@ -28,7 +28,7 @@
 				</div><!-- .site-identity -->
 			</div><!-- .site-branding -->
 
-			<?php get_template_part( 'template-parts/navigation/navigation-header', 'right' );  ?>
+			<?php //get_template_part( 'template-parts/navigation/navigation-header', 'right' );  ?>
 		</div><!-- .site-header-main -->
 	</div><!-- .wrapper -->
 </div><!-- #header-content -->

@@ -124,6 +124,8 @@ html {
 body {
   margin: 0; }
 
+
+
 article,
 aside,
 details,
@@ -710,7 +712,7 @@ del {
 table,
 th,
 td {
-  border: 1px solid; }
+  border: none; }
 
 table {
   border-collapse: collapse;
@@ -6834,7 +6836,7 @@ dl.variation p {
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
-    margin: 14px auto 14px 10px;
+    margin: auto;
     text-align: left;
     width: auto; }
 
