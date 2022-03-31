@@ -16,8 +16,8 @@ function recreation_post_types(){
             'menu_icon' => 'dashicons-building'
         ));
         register_post_type('event',array(
-            'capability_type' => 'event',
-            'map_meta_cap'=> true,
+            //'capability_type' => 'event',
+            //'map_meta_cap'=> true,
             'supports' => array('title', 'editor','excerpt','thumbnail','custom-fields'),
             'rewrite'=> array('slug' => 'events' ),
             'has_archive' => true,

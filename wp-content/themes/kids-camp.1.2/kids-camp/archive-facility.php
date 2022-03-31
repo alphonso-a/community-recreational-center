@@ -30,19 +30,28 @@ get_header(); ?>
 				   <br/>
 				   <p>Posted by <?php the_author_posts_link();?> on <?php the_time('n.j.y'); ?></p>
                 </h5>
-				<img class="card__image" src="<?php the_post_thumbnail_url('kids-camp-logo');?>">
-                <p><?php echo wp_trim_words(get_the_content(),4); ?>  <br/>
-
-				
-				
-				
-                    <a href="<?php the_permalink();?>" class="nu gray">Learn more</a>
-                </p>
+				<table>
+					<tr>
+						<td>
+							<img class="card__image" src="<?php the_post_thumbnail_url('kids-camp-portfolio');?>">
+						</td>
+						<td>
+							<p><?php if(has_excerpt())
+										echo get_the_excerpt();
+									 else
+									 	echo wp_trim_words(get_the_content(), 18); ?> 
+								<br/>
+								<br/>
+								<a href="<?php the_permalink();?>" class="nu gray">Learn more... </a>
+							</p>
+						</td>
+					</tr>
+				</table>
               </div>
 
-			  <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+			  <hr style="height:2px; border-width:0; color:gray; background-color:gray">
 
-		<?php }
+		<?php } echo paginate_links();
 		?>
 
 		</main><!-- .site-main -->
