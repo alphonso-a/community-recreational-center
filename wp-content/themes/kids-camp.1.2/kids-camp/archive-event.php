@@ -32,14 +32,20 @@ get_header(); ?>
                 </h5>
 				<table>
 					<tr>
-						<td>
-							<img class="card__image" src="<?php the_post_thumbnail_url('kids-camp-portfolio');?>">
-						</td>
+						<?php
+							if (has_post_thumbnail()){
+								?>
+							<td>
+								<img class="card__image" src="<?php the_post_thumbnail_url('kids-camp-portfolio');?>">
+							</td>
+						<?php } ?>
 						<td>
 							<p><?php if(has_excerpt())
 										echo get_the_excerpt();
-									 else
-									 	echo wp_trim_words(get_the_content(), 18); ?> 
+									 else if(has_post_thumbnail())
+									 	echo wp_trim_words(get_the_content(), 18);
+									 else 
+									 	echo wp_trim_words(get_the_content(), 30); ?> 
 								<br/>
 								<br/>
 								<a href="<?php the_permalink();?>" class="nu gray">Learn more... </a>

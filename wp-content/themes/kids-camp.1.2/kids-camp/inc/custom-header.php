@@ -151,6 +151,30 @@ if ( ! function_exists( 'kids_camp_header_media_text' ) ):
 	 */
 	function kids_camp_header_media_text() {
 
+		$postPermalink = '';
+
+
+		$new_loop = new WP_Query(array(
+			'post_type' => 'event',
+				'posts_per_page' => 1,
+				'meta_query' => array(
+                    array(
+                        'key'=> 'event_date',
+                        'compare' => '>=',
+                        'value' => date('Ymd'),
+                        'type' => 'numeric'
+                    )
+				)
+			) 
+		);
+
+		if ($new_loop -> have_posts()){
+			while($new_loop -> have_posts()){
+				$new_loop -> the_post();
+					$postPermalink = get_the_permalink();
+			}
+		}
+
 		if ( ! kids_camp_has_header_media_text() ) {
 			// Bail early if header media text is disabled on front page
 			return false;
@@ -177,10 +201,16 @@ if ( ! function_exists( 'kids_camp_header_media_text' ) ):
 
 				<?php kids_camp_header_description(); ?>
 
-				<?php if ( is_front_page() ) :
-					$header_media_url      = get_theme_mod( 'kids_camp_header_media_url', '#' );
-					$header_media_url_text = get_theme_mod( 'kids_camp_header_media_url_text', esc_html__( 'View Details', 'kids-camp' ) );
+				<?php 
+					if ( is_front_page() && $postPermalink != false ) {
+						$header_media_url      = get_theme_mod( 'kids_camp_header_media_url', $postPermalink );
+						$header_media_url_text = get_theme_mod( 'kids_camp_header_media_url_text', esc_html__( 'View Details', 'kids-camp' ) );
+					} else if ( is_front_page() ) {
+						$header_media_url      = get_theme_mod( 'kids_camp_header_media_url', get_post_type_archive_link( 'event' ) );
+						$header_media_url_text = get_theme_mod( 'kids_camp_header_media_url_text', esc_html__( 'Check out past events', 'kids-camp' ) );
+					}
 				?>
+				
 
 					<?php if ( $header_media_url_text ) : ?>
 						<a class="more-link" href="<?php echo esc_url( $header_media_url ); ?>" target="<?php echo esc_attr( get_theme_mod( 'kids_camp_header_url_target' ) ? '_blank' : '_self' ); ?>">
@@ -188,7 +218,6 @@ if ( ! function_exists( 'kids_camp_header_media_text' ) ):
 							<span class="more-button"><?php echo esc_html( $header_media_url_text ); ?><span class="screen-reader-text"><?php echo wp_kses_post( $header_media_url_text ); ?></span></span>
 						</a>
 					<?php endif; ?>
-				<?php endif; ?>
 			</div> <!-- .entry-container -->
 		</div><!-- .custom-header-content -->
 		<?php
@@ -201,6 +230,7 @@ if ( ! function_exists( 'kids_camp_has_header_media_text' ) ):
 	 *
 	 * @since Audioman Pro 1.0
 	 */
+
 	function kids_camp_has_header_media_text() {
 		$header_image = kids_camp_featured_overall_image();
 
@@ -227,9 +257,31 @@ if ( ! function_exists( 'kids_camp_header_sub_title' ) ) :
 	/**
 	 * Display header media text
 	 */
+
 	function kids_camp_header_sub_title( $before = '', $after = '' ) {
-		if ( is_front_page() ) {
-			$header_media_sub_title = ( is_singular() && ! is_front_page() ) ? '' : get_theme_mod( 'kids_camp_header_media_sub_title', esc_html__( 'New Arrival', 'kids-camp' ) );
+
+		$new_loop = new WP_Query(array(
+			'post_type' => 'event',
+				'posts_per_page' => 1,
+				'meta_query' => array(
+                    array(
+                        'key'=> 'event_date',
+                        'compare' => '>=',
+                        'value' => date('Ymd'),
+                        'type' => 'numeric'
+                    )
+				)
+			) 
+		);
+
+
+		if ( is_front_page() && !( $new_loop -> have_posts() ) ) {
+			$header_media_sub_title = ( is_singular() && ! is_front_page() ) ? '' : get_theme_mod( 'kids_camp_header_media_sub_title', esc_html__( '', 'kids-camp' ) );
+			if ( $header_media_sub_title ) {
+				echo $before . wp_kses_post( $header_media_sub_title ) . $after;
+			}
+		}  else if ( is_front_page() ) {
+			$header_media_sub_title = ( is_singular() && ! is_front_page() ) ? '' : get_theme_mod( 'kids_camp_header_media_sub_title', esc_html__( 'Upcoming Event:', 'kids-camp' ) );
 			if ( $header_media_sub_title ) {
 				echo $before . wp_kses_post( $header_media_sub_title ) . $after;
 			}
@@ -253,16 +305,42 @@ if ( ! function_exists( 'kids_camp_header_sub_title' ) ) :
 endif;
 
 if ( ! function_exists( 'kids_camp_header_title' ) ) :
-	/**
-	 * Display header media text
-	 */
 	function kids_camp_header_title( $before = '', $after = '' ) {
-		if ( is_front_page() ) {
-			$header_media_title = get_theme_mod( 'kids_camp_header_media_title', esc_html__( 'Furniture Store', 'kids-camp' ) );
+		$postName = '';
+
+
+		$new_loop = new WP_Query(array(
+			'post_type' => 'event',
+				'posts_per_page' => 1,
+				'meta_query' => array(
+                    array(
+                        'key'=> 'event_date',
+                        'compare' => '>=',
+                        'value' => date('Ymd'),
+                        'type' => 'numeric'
+                    )
+				)
+			) 
+		);
+
+		if ($new_loop -> have_posts()){
+			while($new_loop -> have_posts()){
+				$new_loop -> the_post();
+					$postName = get_the_title();
+			}
+		}
+
+		if ( is_front_page() && $postName != false ) {
+			$header_media_title = get_theme_mod( 'kids_camp_header_media_title', esc_html__( $postName , 'kids-camp' ) );
 			if ( $header_media_title ) {
 				echo $before . wp_kses_post( $header_media_title ) . $after;
 			}
-		}  elseif ( is_singular() ) {
+		} else if ( is_front_page() ) {
+			$header_media_title = get_theme_mod( 'kids_camp_header_media_title', esc_html__( 'NO UPCOMING EVENTS' , 'kids-camp' ) );
+			if ( $header_media_title ) {
+				echo $before . wp_kses_post( $header_media_title ) . $after;
+			}
+		}  else if (is_singular() ) {
 			if ( is_page() ) {
 				if( ! get_theme_mod( 'kids_camp_single_page_title' ) ) {
 					the_title( $before, $after );
