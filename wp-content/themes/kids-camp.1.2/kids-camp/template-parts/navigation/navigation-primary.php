@@ -34,6 +34,8 @@
 						)
 					); ?>
 				</nav><!-- #site-primary-navigation.default-page-menu -->
+				<a href="#" class="btn">Login</a>
+				<a href="#" class="btn">Sign Up</a>
 			<?php endif; ?>
 			
 			<?php

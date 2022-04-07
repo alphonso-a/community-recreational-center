@@ -58,8 +58,6 @@ if ( function_exists( 'woocommerce_demo_store' ) ) {
 	<header id="masthead" class="site-header" role="banner">
 		
 		<?php get_template_part( 'template-parts/header/site', 'top-bar' ); ?>
-		<a href="#" class="btn">Login</a>
-		<a href="#" class="btn">Sign Up</a>
 		<?php get_template_part( 'template-parts/header/site', 'branding' ); ?>
 
 		<?php get_template_part( 'template-parts/navigation/navigation', 'primary' ); ?>
