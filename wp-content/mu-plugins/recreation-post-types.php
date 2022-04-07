@@ -1,7 +1,7 @@
 <?php 
 function recreation_post_types(){
         register_post_type('facility',array(
-            'supports' => array('title', 'editor','excerpt','thumbnail','custom-fields'),
+            'supports' => array('title', 'editor','excerpt', 'comments', 'thumbnail','custom-fields'),
             'rewrite'=> array('slug' => 'facilities' ),
             'has_archive' => true,
             'public' => true,
@@ -18,7 +18,7 @@ function recreation_post_types(){
         register_post_type('event',array(
             //'capability_type' => 'event',
             //'map_meta_cap'=> true,
-            'supports' => array('title', 'editor','excerpt','thumbnail','custom-fields'),
+            'supports' => array('title', 'editor','excerpt', 'comments', 'thumbnail','custom-fields'),
             'rewrite'=> array('slug' => 'events' ),
             'has_archive' => true,
             'public' => true,
@@ -33,7 +33,7 @@ function recreation_post_types(){
             'menu_icon' => 'dashicons-calendar'
         ));
         register_post_type('routine',array(
-            'supports' => array('title', 'editor','excerpt','thumbnail','custom-fields'),
+            'supports' => array('title', 'editor','excerpt', 'comments', 'thumbnail','custom-fields'),
             'rewrite'=> array('slug' => 'routines' ),
             'has_archive' => true,
             'public' => true,
@@ -48,7 +48,7 @@ function recreation_post_types(){
             'menu_icon' => 'dashicons-universal-access'
         ));
         register_post_type('game',array(
-            'supports' => array('title', 'editor','excerpt','thumbnail','custom-fields'),
+            'supports' => array('title', 'editor','excerpt', 'comments', 'thumbnail','custom-fields'),
             'rewrite'=> array('slug' => 'games' ),
             'has_archive' => true,
             'public' => true,
