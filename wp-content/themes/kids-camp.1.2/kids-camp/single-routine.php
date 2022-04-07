@@ -12,37 +12,33 @@ get_header(); ?>
 		<div class="singular-content-wrap">
 			
 			
-			<div class="link-box">
-				<p>
-					<a class="metabox__blog-home-link" href="<?php echo get_post_type_archive_link('routine'); ?>"> 
-						<i class="fa fa-home" aria-hidden="true">All Routines</i>
-					</a> 
-					<p2> > </p2>
-					<span class="metabox__main">
-						<?php the_title(); ?> 
-					</span>
-				</p>
+		<div class="link-box">
 
-				<br/>
-				<br/>
+		<p><a class="metabox__blog-home-link"
+		href="<?php echo get_post_type_archive_link('routine'); ?>">
+		<i class="fa fa-home" aria-hidden="true"></i>All Routines</a> <p2>/</p2>
+		<span class="metabox__main"><?php the_title(); ?> </span></p>
+		<br/>
+		<br/>
+		<p>Posted on <?php the_time('n.j.y'); ?></p>
 
-				<p>Posted on <?php the_time('n.j.y'); ?></p>
-            </div>
+		</div>
 
-			<div class="thumbnail-box">
-				<?php the_post_thumbnail(); ?>
-            </div>
+		<div class="thumbnail-box">
+		<?php the_post_thumbnail(); ?>
 
-			<br/>
-		    <br/>
 
-		    <hr style="height:2px; border-width:0; color:gray; background-color:gray">	
+		</div>
 
-			<div class="content-box">
-				<?php the_content(); ?>
-            </div>
+		<br/>
+		<br/>
 
-			<?php get_template_part( 'template-parts/content/content', 'comment' ); ?>
+		<hr style="height:2px;border-width:0;color:gray;background-color:gray">	
+
+		<div class="content-box">
+		<?php the_content(); ?>
+		</div>
+
 			
 		</div><!-- .singular-content-wrap -->
 	</main><!-- .site-main -->
