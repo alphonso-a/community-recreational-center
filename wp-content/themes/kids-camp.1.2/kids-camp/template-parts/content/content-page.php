@@ -8,6 +8,25 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php
+
+	if(is_page() && $post->post_parent){
+		$ancestors = array_reverse(get_post_ancestors($post));
+
+		foreach($ancestors as $value){
+			?>
+			<span>
+				<a href="<?php echo(get_the_permalink($value))?>"> <?php echo(get_the_title($value)) ?></a>
+			</span>
+			<p2> > </p2>
+			<?php
+		}
+		?>
+			<span>
+				<?php the_title(); ?> 
+			</span>
+		<?php
+	}
+
 	$header_image = kids_camp_featured_overall_image();
 
 	if ( 'disable' === $header_image ) :
@@ -42,17 +61,4 @@
 		) );
 		?>
 	</div><!-- .entry-content -->
-
-	<?php
-		edit_post_link(
-			sprintf(
-				/* translators: %s: Name of current post */
-				__( 'Edit<span class="screen-reader-text"> "%s"</span>', 'kids-camp' ),
-				get_the_title()
-			),
-			'<footer class="entry-footer"><span class="edit-link">',
-			'</span></footer><!-- .entry-footer -->'
-		);
-	?>
-
 </article><!-- #post-## -->
