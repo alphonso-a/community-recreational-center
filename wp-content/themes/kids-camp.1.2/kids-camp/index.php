@@ -39,8 +39,9 @@ get_header(); ?>
 						<div class="grid">
 							<?php
 							// Start the loop.
-							while ( have_posts() ) : the_post();
-
+							$i = 0;
+							while ( have_posts() && $i < 3 ) : the_post();
+								$i++;
 								/*
 								 * Include the Post-Format-specific template for the content.
 								 * If you want to override this in a child theme, then include a file

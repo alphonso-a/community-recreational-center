@@ -20,6 +20,16 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 		<?php
+			$args = array(
+				'post_type' => 'your-custom-post-type',
+				'orderby' => 'date',
+				'order' => 'DESC',
+				'posts_per_page' => 10
+				);
+			$query = new WP_Query( $args );
+		?>
+
+		<?php
 		while(have_posts()){
 		the_post();?>
 		
