@@ -396,9 +396,6 @@ input[type=submit],
 .sidebar .widget {
   padding: 28px; }
 
-.widget ul {
-  list-style: none;
-  margin-left: 0; }
 
 .tagcloud a {
   line-height: 1.75; }

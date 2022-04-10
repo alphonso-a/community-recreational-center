@@ -24,7 +24,7 @@
 						}
 					}
 
-					the_post_thumbnail( $thumbnail );
+					the_post_thumbnail( 'kids-camp-testimonial' );
 					?>
 				</a>
 			</div>
