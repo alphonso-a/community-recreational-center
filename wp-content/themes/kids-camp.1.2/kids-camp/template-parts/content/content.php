@@ -47,6 +47,14 @@
 			<!-- <div class="entry-summary">
 				<?php the_excerpt(); ?>
 			</div> --><!-- .entry-summary -->
+
+			<div class="entry-footer">
+				<div class="entry-meta">
+					<?php
+						kids_camp_edit_link();
+					?>
+				</div>
+			</div>
 		</div><!-- .entry-container -->
 	</div><!-- .hentry-inner -->
 </article><!-- #post-## -->

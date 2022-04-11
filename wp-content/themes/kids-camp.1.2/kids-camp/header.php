@@ -19,6 +19,25 @@
 	<?php wp_head(); ?>
 </head>
 
+<style>
+	.btn{
+		margin-top: 10px;
+		margin-left: 10px;
+		background-color: #4CAF50; /* Green */
+		border: none;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		border-radius: 25px;
+	}
+	.btn:hover{
+		background-color: black;
+	}
+</style>
+
 <body <?php body_class(); ?>>
 
 <?php do_action( 'wp_body_open' ); ?>
@@ -37,8 +56,8 @@ if ( function_exists( 'woocommerce_demo_store' ) ) {
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'kids-camp' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		<?php get_template_part( 'template-parts/header/site', 'top-bar' ); ?>
 		
+		<?php get_template_part( 'template-parts/header/site', 'top-bar' ); ?>
 		<?php get_template_part( 'template-parts/header/site', 'branding' ); ?>
 
 		<?php get_template_part( 'template-parts/navigation/navigation', 'primary' ); ?>
