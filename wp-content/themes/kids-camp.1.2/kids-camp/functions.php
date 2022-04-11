@@ -669,15 +669,12 @@ add_action( 'tgmpa_register', 'kids_camp_register_required_plugins' );
 
 add_action( 'pre_get_posts', 'add_custom_post_types_to_loop' );
 
-
-
 function add_custom_post_types_to_loop( $query ) {
 	if ( is_home() && $query->is_main_query() ){
 		$query->set( 'post_type', array( 'post', 'game' ) );
 		$query->set( 'post_type', array( 'post', 'routine' ) );
 		$query->set( 'post_type', array( 'post', 'event' ) );
-	}else{
-		wp_reset_query();
+		remove_all_actions ( '__after_loop');
 	}
 	return $query;
 }
