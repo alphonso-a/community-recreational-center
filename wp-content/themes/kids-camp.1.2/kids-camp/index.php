@@ -18,7 +18,7 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 			<div class="archive-posts-wrapper">
 				<?php
-		        $kids_camp_title     = get_theme_mod( 'kids_camp_recent_posts_heading', esc_html__( 'From Our Blog', 'kids-camp' ) );
+		        $kids_camp_title     = get_theme_mod( 'kids_camp_recent_posts_heading', esc_html__( 'From Our Blogs', 'kids-camp' ) );
 				if ( $kids_camp_title ) : ?>
 				<div class="section-heading-wrapper">
 						<div class="section-title-wrapper">

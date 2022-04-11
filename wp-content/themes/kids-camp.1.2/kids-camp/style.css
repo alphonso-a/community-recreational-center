@@ -7798,7 +7798,7 @@ pre,
 .site-footer textarea:focus,
 .site-footer fieldset:focus,
 .site-footer select:focus {
-  color: #fef9f3; }
+  color:  black; }
 
 /* Secondary Background Color Woocommerce */
 @media screen and (min-width: 48em) {
@@ -8379,7 +8379,8 @@ body:not(.home) .header-media,
 #feature-slider-section .cycle-prev,
 #feature-slider-section .cycle-next,
 #footer-newsletter {
-  background-color: #cbe6f2; }
+  color: black;
+  background-color: white; }
 
 .cycle-pager span {
   color: #cbe6f2; }
